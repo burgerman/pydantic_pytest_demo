@@ -1,0 +1,29 @@
+-- Original Fields
+1. LocalTime (string): Time of the order event in HH:MM:SS.millisecs
+2. Symbol (string): Stock ticker
+3. EventType: The specific event type
+    This project is only concerned with the TRADE events
+4. Side (b|s|t): Tells whether the original order is a buy, sell, or short sell order
+    b: Buy
+    s: Sell
+    t: Short sell
+    For this project, you can treat Short Sell orders as Sell orders
+5. FillSize (unsigned integer): Number of shares that were filled
+6. FillPrice (double): Price at which the trade was executed
+7. FillExchange (string): Name of exchange where the trade was filled
+
+-- To Be Added
+8. SymbolBought: Number of shares of the stock bought
+9. SymbolSold: Number of shares of the stock sold
+10. SymbolPosition: Number of shares of a stock the portfolio currently holds or owes
+	Dependent on the number of shares we bought vs. sold, the position can be:
+	Long (positive number) if we bought more shares than we sold.
+	Short (negative number) if we sold more than we bought.
+	Flat (zero) if we do not have a position in the given stock.
+11. SymbolNotional: Value of the shares bought or sold, == FillSize * FillPrice
+12. ExchangeBought: Number of shares bought on the current exchange, across all symbols
+13. ExchangeSold: Number of shares sold on the current exchange, across all symbols
+14. TotalBought: Total number of shares bought across all symbols
+15. TotalSold: Total number of shares sold across all symbols
+16. TotalBoughtNotional: Total value (SymbolNotional) of all shares bought across all symbols
+17. TotalSoldNotional: Total value (SymbolNotional) of all shares sold across all symbols

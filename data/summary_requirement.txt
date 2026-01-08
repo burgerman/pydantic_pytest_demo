@@ -1,0 +1,12 @@
+Summary Statistics
+In addition, the script should print the following summary to standard out when the run is completed:
+1. Shares Bought: Total number of shares bought
+2. Shares Sold: Total number shares sold
+3. Notional Bought: Total value of all shares bought
+4. Notional Sold: Total value of all shares sold
+5. Per Exchange Volumes:
+    * For each exchange, the total number of shares bought and sold
+    * Sorted by the exchange name
+6. Average fill size
+7. Median fill size
+8. Top 10 most active stocks: List of stocks with most volume (in total shares traded), in descending order and including the actual volume shares traded in parentheses

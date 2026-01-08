@@ -1,0 +1,6 @@
+fastapi~=0.127.0
+pydantic~=2.12.5
+pytest~=9.0.2
+pandas~=2.3.3
+numpy~=2.4.0
+httpx~=0.28.1
