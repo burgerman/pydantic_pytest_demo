@@ -16,6 +16,12 @@ class CalcTradeStats:
             df['Side'] = df['Side'].astype('category')
             df['EventType'] = df['EventType'].astype('category')
 
+            df['LocalTime'] = pd.to_datetime(df['LocalTime'])
+            if df['LocalTime'].is_monotonic_increasing:
+                print("\n data already sorted by LocalTime")
+            else:
+                df = df.sort_values('LocalTime')
+
             df = df[df['EventType'] == 'TRADE'].copy()
 
             df['SymbolNotional'] = df['FillSize'] * df['FillPrice']
