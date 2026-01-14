@@ -7,6 +7,9 @@ class CalcTradeStats:
         self.outputFile = outputFile
         self.trade_data = None
 
+    def __eq__(self, other):
+        return self.inputFile == other.inputFile and self.outputFile == other.outputFile
+
     def enrich (self):
         try:
             # Can use 'chunksize' for loading large data.

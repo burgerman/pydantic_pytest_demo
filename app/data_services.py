@@ -19,6 +19,7 @@ class TradeService:
     def ingest(self, trade_data:list[TransactionData]) -> int:
         self.data_memo += trade_data
         for t in trade_data:
+            print(t)
             self.in_memory_dict[t.id] = t
         self.updated_time = datetime.now()
         return self.get_size()

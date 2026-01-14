@@ -15,7 +15,7 @@ class TransactionData(BaseModel):
         return [] if v is None else v
 
     @field_validator("type")
-    def check_type(self, v:str) -> str:
+    def check_type(cls, v:str) -> str:
         if v not in VALID_TYPES:
             raise ValueError("type must be one of {}".format(VALID_TYPES))
         return v
@@ -31,6 +31,6 @@ class UserData(BaseModel):
     age:Optional[int] = 0
 
     @field_validator("email", mode='after')
-    def lowercase_email_address(self, v:str) -> str:
+    def lowercase_email_address(cls, v:str) -> str:
         return v.lower()
 

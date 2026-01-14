@@ -9,7 +9,16 @@ def calc_stats_service():
     return CalcTradeStats(inputFile=os.path.join(path,'data','trades.csv'),
                           outputFile=os.path.join(path,'data','enrichedTrades.csv'))
 
+@pytest.fixture(scope="class", autouse=True)
+def calc_stats_service2():
+    path = Path(__file__).resolve().parent.parent
+    return CalcTradeStats(inputFile=os.path.join(path,'data','trades.csv'),
+                          outputFile=os.path.join(path,'data','enrichedTrades.csv'))
+
 class TestCalcStats:
+    def test_obj_equal(self, calc_stats_service, calc_stats_service2):
+        assert calc_stats_service == calc_stats_service2
+
     def test_enrich(self, calc_stats_service):
         calc_stats_service.enrich()
         test_df = calc_stats_service.trade_data
