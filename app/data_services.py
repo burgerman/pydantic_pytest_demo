@@ -32,8 +32,7 @@ class TradeService:
         return pd.DataFrame(instance_list)
 
     def query(self, transaction_id: str) -> Optional[TransactionData]:
-        instance = self.in_memory_dict.get(transaction_id)
-        return instance
+        return self.in_memory_dict.get(transaction_id)
 
     def store(self):
         pass
